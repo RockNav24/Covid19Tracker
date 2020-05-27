@@ -5,13 +5,21 @@ import 'package:covidtracker/screens/myCountryScreen.dart';
 import 'package:covidtracker/screens/moreInfoScreen.dart';
 
 class BottomNavigation extends StatefulWidget {
+  final List data;
+  BottomNavigation({this.data});
   @override
   _BottomNavigationState createState() => _BottomNavigationState();
 }
 
 class _BottomNavigationState extends State<BottomNavigation> {
   int _selectedIndex = 0;
-  List<Widget> pages = [HomeScreen(), MoreInfoScreen(), MyCountryScreen()];
+  List<Widget> pages = [
+    HomeScreen(
+      data: widget.data,
+    ),
+    MoreInfoScreen(),
+    MyCountryScreen()
+  ];
 
   @override
   Widget build(BuildContext context) {
