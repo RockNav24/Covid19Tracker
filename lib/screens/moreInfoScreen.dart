@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:covidtracker/screens/bottomNavigation.dart';
 
 class MoreInfoScreen extends StatefulWidget {
   @override
@@ -33,6 +32,5 @@ class _MoreInfoScreenState extends State<MoreInfoScreen> {
         ],
       ),
     );
-    ;
   }
 }

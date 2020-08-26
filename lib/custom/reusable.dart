@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:covidtracker/const.dart';
+import 'package:covidtracker/covid19Data.dart';
 
 class CardSelect extends StatelessWidget {
-  final Image countryImage;
-  final String countryName;
-  final int riskLevel;
-  final int confirmed;
+  final Map selectedCountry;
 
-  CardSelect(
-      {this.countryImage, this.countryName, this.riskLevel, this.confirmed});
+  CardSelect({this.selectedCountry});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print('pressed');
+        Navigator.pushNamed(context, 'moreDetailed');
       },
       child: Container(
         decoration: BoxDecoration(
@@ -32,7 +29,9 @@ class CardSelect extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: Text(
-                  'Sri Lanka',
+                  selectedCountry != null
+                      ? selectedCountry[CovidData.COUNTRY_NAME]
+                      : 'Country',
                   style: kReuseCardTitle,
                 ),
               ),
@@ -54,7 +53,11 @@ class CardSelect extends StatelessWidget {
             ),
             Expanded(
               child: Text(
-                'Low',
+                selectedCountry != null
+                    ? CovidData().riskLevel(
+                        selectedCountry[CovidData.LATEST_DATA]
+                            [CovidData.LATEST_DEATHS])
+                    : 'Risk Level',
                 style: kReuseCardTitle,
               ),
             ),
@@ -68,14 +71,18 @@ class CardSelect extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(5),
                 child: Text(
-                  'Confirmed',
+                  'Confirmed cases',
                   style: kReuseCardHead,
                 ),
               ),
             ),
             Expanded(
               child: Text(
-                '50000',
+                selectedCountry != null
+                    ? selectedCountry[CovidData.LATEST_DATA]
+                            [CovidData.LATEST_CONFIRMED]
+                        .toString()
+                    : 'Value',
                 style: kReuseCardTitle,
               ),
             ),

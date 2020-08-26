@@ -1,0 +1,28 @@
+PODS:
+  - Flutter (1.0.0)
+  - geolocator (5.3.1):
+    - Flutter
+  - location_permissions (2.0.5):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - geolocator (from `.symlinks/plugins/geolocator/ios`)
+  - location_permissions (from `.symlinks/plugins/location_permissions/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  geolocator:
+    :path: ".symlinks/plugins/geolocator/ios"
+  location_permissions:
+    :path: ".symlinks/plugins/location_permissions/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  geolocator: 460cc8e850b616f8c0e90944c86517d91ccbb686
+  location_permissions: 4a49d4e5bec5b653643e551ab77963cc99bb0e4a
+
+PODFILE CHECKSUM: 8e679eca47255a8ca8067c4c67aab20e64cb974d
+
+COCOAPODS: 1.9.1

@@ -1,28 +1,25 @@
-import 'package:covidtracker/const.dart';
 import 'package:flutter/material.dart';
 import 'package:covidtracker/screens/homeScreen.dart';
 import 'package:covidtracker/screens/myCountryScreen.dart';
 import 'package:covidtracker/screens/moreInfoScreen.dart';
+import 'package:covidtracker/const.dart';
 
-class BottomNavigation extends StatefulWidget {
+class MainScreen extends StatefulWidget {
   final List data;
-  BottomNavigation({this.data});
+  MainScreen({this.data});
   @override
-  _BottomNavigationState createState() => _BottomNavigationState();
+  _MainScreenState createState() => _MainScreenState();
 }
 
-class _BottomNavigationState extends State<BottomNavigation> {
+class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
-  List<Widget> pages = [
-    HomeScreen(
-      data: widget.data,
-    ),
-    MoreInfoScreen(),
-    MyCountryScreen()
-  ];
-
   @override
   Widget build(BuildContext context) {
+    List<Widget> pages = [
+      HomeScreen(data: widget.data),
+      MyCountryScreen(data: widget.data),
+      MoreInfoScreen(),
+    ];
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: kPrimaryColor,
